@@ -18,9 +18,9 @@ async function connectDB() {
   try {
     await client.connect();
     db = client.db(process.env.DB_NAME || 'gamesdb');
-    console.log('✅ Connecté à MongoDB Atlas - Base:', db.databaseName);
+    console.log(' Connecté à MongoDB Atlas - Base:', db.databaseName);
   } catch (error) {
-    console.error('❌ Erreur de connexion MongoDB:', error);
+    console.error(' Erreur de connexion MongoDB:', error);
     process.exit(1);
   }
 }
@@ -28,7 +28,7 @@ async function connectDB() {
 // Route de base
 app.get('/', (req, res) => {
   res.json({ 
-    message: "✅ API Jeux Vidéo MongoDB est en ligne !",
+    message: " API Jeux Vidéo MongoDB est en ligne !",
     endpoints: {
       "GET /items": "Liste tous les jeux",
       "GET /items/:id": "Récupère un jeu par ID",
@@ -135,7 +135,7 @@ app.post('/seed', async (req, res) => {
 });
 
 // ======================
-// RECHERCHE (obligatoire)
+// RECHERCHE 
 // ======================
 
 // GET /search?keyword=...&genre=... 
